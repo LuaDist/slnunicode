@@ -5,7 +5,7 @@
 # Please note that the package source code is licensed under its own license.
 
 PROJECT(slnunicode C)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 INCLUDE(dist.cmake)
 
 ADD_DEFINITIONS(-DluaI_openlib=luaL_openlib) # workaround Lua 5.0 compat
