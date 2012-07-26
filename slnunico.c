@@ -1,7 +1,7 @@
 /*
 *	Selene Unicode/UTF-8
 *	This additions
-*	Copyright (c) 2005 Malete Partner, Berlin, partner@malete.org
+*	Copyright (c) 2005-2011 Malete Partner, Berlin, partner@malete.org
 *	Available under "Lua 5.0 license", see http://www.lua.org/license.html#5
 *	$Id: slnunico.c,v 1.5 2006/07/26 17:20:04 paul Exp $
 *
@@ -1321,7 +1321,7 @@ LUALIB_API int luaopen_unicode (lua_State *L) {
 	/* register unicode itself so require("unicode") works */
 	luaL_register(L, SLN_UNICODENAME,
 		uniclib + (sizeof uniclib/sizeof uniclib[0] - 1)); /* empty func list */
-	lua_pop(L, 1);
+	/* lua_pop(L, 1); http://lua-users.org/lists/lua-l/2007-11/msg00070.html */
 	lua_pushinteger(L, MODE_ASCII);
 	luaI_openlib(L, SLN_UNICODENAME ".ascii", uniclib, 1);
 #ifdef SLNUNICODE_AS_STRING
@@ -1360,6 +1360,7 @@ LUALIB_API int luaopen_unicode (lua_State *L) {
 		}
 	}
 #endif
+	lua_settop(L, 2); /* http://lua-users.org/lists/lua-l/2007-11/msg00070.html */
 	return 1;
 }
 
