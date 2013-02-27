@@ -1,0 +1,24 @@
+type = "x86_64"
+arch = "Ubuntu"
+author = "Unknown (paul)"
+depends = {
+[[lua ~> 5.1]],
+}
+
+desc = "A Unicode support library for Lua, developed for the Selene database project."
+version = "1.1a"
+maintainer = "Peter Drahoš"
+files = {
+Runtime = {
+[[lib/lua/unicode.so]],
+}
+,
+Test = {
+[[share/slnunicode/test/unitest]],
+}
+,
+}
+
+url = "http://luaforge.net/projects/sln/"
+license = "MIT/X11"
+name = "slnunicode"
