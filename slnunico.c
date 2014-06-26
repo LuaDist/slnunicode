@@ -1323,7 +1323,7 @@ LUALIB_API int luaopen_unicode (lua_State *L) {
 		uniclib + (sizeof uniclib/sizeof uniclib[0] - 1)); /* empty func list */
 	/* lua_pop(L, 1); http://lua-users.org/lists/lua-l/2007-11/msg00070.html */
 	lua_pushinteger(L, MODE_ASCII);
-	luaI_openlib(L, SLN_UNICODENAME ".ascii", uniclib, 1);
+	luaL_register(L, SLN_UNICODENAME ".ascii", uniclib);
 #ifdef SLNUNICODE_AS_STRING
 #if defined(LUA_COMPAT_GFIND)
 	lua_getfield(L, -1, "gmatch");
@@ -1335,11 +1335,11 @@ LUALIB_API int luaopen_unicode (lua_State *L) {
 	lua_setfield(L, LUA_GLOBALSINDEX, "string");
 #endif
 	lua_pushinteger(L, MODE_LATIN);
-	luaI_openlib(L, SLN_UNICODENAME ".latin1", uniclib, 1);
+	luaL_register(L, SLN_UNICODENAME ".latin1", uniclib);
 	lua_pushinteger(L, MODE_GRAPH);
-	luaI_openlib(L, SLN_UNICODENAME ".grapheme", uniclib, 1);
+	luaL_register(L, SLN_UNICODENAME ".grapheme", uniclib);
 	lua_pushinteger(L, MODE_UTF8);
-	luaI_openlib(L, SLN_UNICODENAME ".utf8", uniclib, 1);
+	luaL_register(L, SLN_UNICODENAME ".utf8", uniclib);
 #ifdef WANT_EXT_MATCH
 	{
 		unsigned i;
