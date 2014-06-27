@@ -9,8 +9,5 @@ cmake_minimum_required ( VERSION 2.8 )
 include ( cmake/dist.cmake )
 include ( lua )
 
-add_definitions ( -DluaI_openlib=luaL_openlib )
-# workaround Lua 5.0 compat
-
 install_lua_module ( unicode slnunico.c slnudata.c unicode.def )
 install_test ( unitest )
